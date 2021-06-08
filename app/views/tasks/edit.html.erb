@@ -1,0 +1,21 @@
+<%= form_with scope: :task, model: [@category, @task], method: :put, local: true do |f| %>
+  <div>
+    <% if @task.errors.any? %>
+      <h2>Could not update due to errors.</h2>
+      <ul>
+        <% @task.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    <% end %>
+  </div>
+  
+  <div>
+    <%= f.label :body %>
+    <%= f.text_field :body %>
+  </div>
+  
+  <div>
+    <%= f.submit %>
+  </div>
+<% end %>
