@@ -1,7 +1,28 @@
-<h1>View Item</h1>
+<h1><%= @category.title %></h1>
 
-<p>Post ID: <%= @category.id %></p>
-<p>Title: <%= @category.title %></p>
+<%= link_to 'Add Task', new_category_task_path(@category) %>
+<%= link_to 'Edit Category', edit_category_path(@category) %><br>
+<%= link_to 'Delete Category', category_path(@category), method: :delete, data: {confirm: "Are you sure?"} %>
 
-
+<table>
+  <thead>
+    <tr>
+      <th>Body</th>
+      <th>Deadline</th>
+    </tr>
+  </thead>
+  
+  <tbody>
+    <% @category.tasks.each do |task| %>
+      <tr>
+        <td><%= task.body %></td>
+        <td><%= task.deadline %></td>
+        <td><%= link_to 'Show', category_task_path(@category, task) %></td>
+        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
+        <td><%= link_to 'Delete', category_task_path(@category, task), method: :delete, data: {confirm: "Are you sure?"} %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+  
 <%= link_to 'Back', home_path %>

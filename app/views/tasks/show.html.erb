@@ -2,5 +2,6 @@
 
 <p>Post ID: <%= @task.id %></p>
 <p>Body: <%= @task.body %></p>
+<p>Deadline: <%= @task.deadline %></p>
 
-<%= link_to 'Back to tasks', category_tasks_path(@category) %>
+<%= link_to 'Back', category_path(@category) %>

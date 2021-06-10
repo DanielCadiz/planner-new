@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="user_new.css">
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class="formtwo">
+  <div class="title">Create an account!</div>
+  <div class="subtitle">Sign Up</div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field input-container ic1">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "input", id: "firstname", type: "text", placeholder: " " %>
+      <div class="cut"></div>
+      <%= f.label :email, for: "firstname", class: "placeholder" %>
+    </div>
+
+    <div class="field input-container ic2">
+      <%= f.password_field :password, autocomplete: "new-password", id: "lastname", class: "input", type: "password", placeholder: " " %>
+      <div class="cut"></div>
+      <%= f.label :password, for: "lastname", class: "placeholder" %>
+    </div>
+
+    <div class="field input-container ic2">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", id: "email", class: "input", type: "password", placeholder: " " %>
+      <div class="cut"></div>
+      <%= f.label :password_confirmation, for: "email", class: "placeholder" %>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Sign up", class: "submit" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>
