@@ -1,4 +1,19 @@
-<h1>Create New Item</h1>
+<link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="category.css">
+<link rel="stylesheet" href="form.css">
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class="navbar">
+  <%= link_to "Edit User", edit_user_registration_path, class: "subtitle" %>
+  <%= link_to 'Create Category', new_category_path, class: "subtitle" %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "subtitle" %>
+</div>
+
+<div class="form">
+<p class="title">Create a Category</p>
 
 <div>
   <% if @category.errors.any? %>
@@ -15,14 +30,17 @@
 
 <%= form_with scope: :category, model: @category, local: true do |f| %>
 
-  <div>
-    <%= f.label :title %>
-    <%= f.text_field :title %>
+  <div class="input-container ic1">
+    <%= f.text_field :title, class: "input", id: "firstname", type: "text", placeholder: " " %>
+    <div class="cut"></div>
+    <%= f.label :title, for: "firstname", class: "placeholder" %>
   </div>
 
   <div>
-    <%= f.submit %>
+    <%= f.submit "Create", class: "submit" %>
   </div>
 <% end %>
 
-<%= link_to 'Back', home_path %>
+<div class="divide2"></div>
+<%= link_to 'Back', home_path, class: "subtitle" %>
+</div>

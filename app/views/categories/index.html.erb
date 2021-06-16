@@ -1,15 +1,18 @@
 <link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="category.css">
+<link rel="stylesheet" href="form.css">
 
 <div class="bg"></div>
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
 
 <div class="navbar">
-  <%= link_to "Edit User", destroy_user_session_path, method: :delete %>
-  <%= link_to 'New Item', new_category_path %>
-  <%= link_to "Log out", destroy_user_session_path, method: :delete %>
+  <%= link_to "Edit User", edit_user_registration_path, class: "subtitle" %>
+  <%= link_to 'Create Category', new_category_path, class: "subtitle" %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "subtitle" %>
 </div>
 
+<div class="form">
 <% flash.each do |title,messages| %>
   <ul>
     <li><%= messages %></li>
@@ -19,26 +22,33 @@
 <table>
   <thead>
     <tr>
-      <th>Title</th>
+    <div class="divide3"></div>
+      <th class="title">Categories</th>
     </tr>
   </thead>
 
   <tbody>
     <% @categories.each do |category| %>
       <tr>
-        <td><%= link_to category.title, category_path(category) %></td>
+        <td><%= link_to category.title, category_path(category), class: "subtitle" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
+<div class="divide"></div>
+
+<div class="form2">
+<p class="title">Pending Today!</p>
 <% @categories.each do |category|%>
   <% category.tasks.each do |task| %>
     <% if task.deadline == Date.today %>
-      <div>
-        <%= category.title %>
+      <div class="subtitle">
+        <%= category.title + ":" %>
         <%= task.body %>
       </div>
     <% end %>
   <% end %>
 <% end %>
+</div>

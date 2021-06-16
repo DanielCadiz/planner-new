@@ -1,28 +1,54 @@
-<h1><%= @category.title %></h1>
+<link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="category.css">
+<link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="task.css">
 
-<%= link_to 'Add Task', new_category_task_path(@category) %>
-<%= link_to 'Edit Category', edit_category_path(@category) %><br>
-<%= link_to 'Delete Category', category_path(@category), method: :delete, data: {confirm: "Are you sure?"} %>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
 
-<table>
-  <thead>
-    <tr>
-      <th>Body</th>
-      <th>Deadline</th>
-    </tr>
-  </thead>
-  
-  <tbody>
-    <% @category.tasks.each do |task| %>
+<div class="navbar">
+  <%= link_to "Edit User", edit_user_registration_path, class: "subtitle" %>
+  <%= link_to 'Create Category', new_category_path, class: "subtitle" %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "subtitle" %>
+</div>
+
+<div class="body">
+  <div class="box">
+    <p class="title"><%= @category.title %></p>
+    <div class="box2">
+      <%= link_to 'Edit', edit_category_path(@category), class: "subtitle" %><br>
+      <%= link_to 'Delete', category_path(@category), method: :delete, data: {confirm: "Are you sure?"}, class: "subtitle" %>
+    </div>
+    </div>
+
+
+    <div class="divide2"></div>
+
+  <div class="form_task">
+  <table>
+    <thead>
       <tr>
-        <td><%= task.body %></td>
-        <td><%= task.deadline %></td>
-        <td><%= link_to 'Show', category_task_path(@category, task) %></td>
-        <td><%= link_to 'Edit', edit_category_task_path(@category, task) %></td>
-        <td><%= link_to 'Delete', category_task_path(@category, task), method: :delete, data: {confirm: "Are you sure?"} %></td>
+        <th class="subtitle2">Task</th>
+        <th class="subtitle2">Deadline</th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-  
-<%= link_to 'Back', home_path %>
+    </thead>
+    
+    <tbody>
+      <% @category.tasks.each do |task| %>
+        <tr>
+          <td><%= task.body %></td>
+          <td><%= task.deadline %></td>
+          <td><%= link_to 'Show', category_task_path(@category, task), class: "subtitle" %></td>
+          <td><%= link_to 'Edit', edit_category_task_path(@category, task), class: "subtitle" %></td>
+          <td><%= link_to 'Delete', category_task_path(@category, task), method: :delete, data: {confirm: "Are you sure?"}, class: "subtitle" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <div class="links">
+  <%= link_to 'Add Task', new_category_task_path(@category), class: "subtitle" %>
+  <%= link_to 'Back', home_path, class: "subtitle" %>
+  </div>
+  </div>
+</div>

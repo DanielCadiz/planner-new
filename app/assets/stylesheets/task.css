@@ -1,0 +1,42 @@
+.body {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    top: 3rem;
+    position: absolute;
+    width: 30rem;
+  }
+
+  .box {
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 10rem;
+    padding: 20px;
+    width: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    }
+
+.box2 {
+    width: 10rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    align-items: flex-start;
+    }
+
+.form_task {
+    background-color: white;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 25rem;
+    padding: 20px;
+    width: 30rem;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}

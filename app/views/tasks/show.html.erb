@@ -1,7 +1,22 @@
-<h1>View Task</h1>
+<link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="category.css">
+<link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="task.css">
 
-<p>Post ID: <%= @task.id %></p>
-<p>Body: <%= @task.body %></p>
-<p>Deadline: <%= @task.deadline %></p>
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
 
-<%= link_to 'Back', category_path(@category) %>
+<div class="navbar">
+  <%= link_to "Edit User", edit_user_registration_path, class: "subtitle" %>
+  <%= link_to 'Create Category', new_category_path, class: "subtitle" %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "subtitle" %>
+</div>
+
+<div class="form">
+<p class="title"><%= @task.body %></p>
+
+<p class="subtitle2">Deadline: <%= @task.deadline %></p>
+
+<%= link_to 'Back', category_path(@category), class: "subtitle" %>
+</div>

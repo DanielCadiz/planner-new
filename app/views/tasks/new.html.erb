@@ -1,4 +1,21 @@
+<link rel="stylesheet" href="background.css">
+<link rel="stylesheet" href="category.css">
+<link rel="stylesheet" href="form.css">
+<link rel="stylesheet" href="task.css">
+
+<div class="bg"></div>
+<div class="bg bg2"></div>
+<div class="bg bg3"></div>
+
+<div class="navbar">
+  <%= link_to "Edit User", edit_user_registration_path, class: "subtitle" %>
+  <%= link_to 'Create Category', new_category_path, class: "subtitle" %>
+  <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "subtitle" %>
+</div>
+
 <%= form_with scope: :task, model: [@category, @task], local: true do |f| %>
+  <div class="form">
+  <p class="subtitle2">Add New Task</p>
   <div>
     <% if @task.errors.any? %>
       <h2>Could not create due to errors.</h2>
@@ -10,19 +27,23 @@
     <% end %>
   </div>
   
-  <div>
-    <%= f.label :body %>
-    <%= f.text_field :body %>
+  <div class="input-container ic1">
+    <%= f.text_field :body, class: "input", id: "firstname", type: "text", placeholder: " " %>
+    <div class="cut"></div>
+    <%= f.label :body, for: "firstname", class: "placeholder" %>
+  </div>
+  
+  <div class="input-container ic2">
+    <%= f.date_field :deadline, class: "input", id: "lastname", type: "date", placeholder: " " %>
+    <div class="cut"></div>
+    <%= f.label :deadline, for: "lastname", class: "placeholder" %>
   </div>
   
   <div>
-    <%= f.label :deadline %>
-    <%= f.date_field :deadline %>
-  </div>
-  
-  <div>
-    <%= f.submit %>
+    <%= f.submit "Create", class: "submit" %>
   </div>
 <% end %>
 
-<%= link_to 'Back', category_path(@category) %>
+<div class="divide2"></div>
+<%= link_to 'Back', category_path(@category), class: "subtitle" %>
+</div>
